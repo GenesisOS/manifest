@@ -54,6 +54,7 @@
 
   <!-- packages -->
   <project path="packages/apps/BtHelper" name="packages_apps_BtHelper" remote="GenesisOS" />
+  <project path="packages/apps/ColumbusService" name="packages_apps_ColumbusService" remote="GenesisOS" />
   <project path="packages/apps/FaceUnlock" name="packages_apps_FaceUnlock" remote="GenesisOS-GitLab" />
   <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs,pdk-cw-tvc" remote="GenesisOS" />
   <project path="packages/apps/Updater" name="packages_apps_Updater" remote="GenesisOS" />
