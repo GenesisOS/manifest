@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="GenesisOS"
+           fetch="https://github.com/GenesisOS"
+           sync-c="true"
+           sync-j="4"
+           revision="verve-qpr2" />
+
+  <remote  name="GenesisOS-GitLab"
+           fetch="https://gitlab.com/TheGenesisOS"
+           sync-c="true"
+           sync-j="4"
+           revision="verve-qpr2" />
+
+  <!-- art -->
+  <project path="art" name="art" groups="pdk" remote="GenesisOS" />
+
+  <!-- bionic -->
+  <project path="bionic" name="bionic" groups="pdk" remote="GenesisOS" />
+
+  <!-- bootable -->
+  <project path="bootable/deprecated-ota" name="bootable_deprecated-ota" groups="pdk-cw" remote="GenesisOS" />
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="GenesisOS" />
+
+  <!-- build -->
+  <project path="build/make" name="build_make" groups="pdk,sysui-studio" remote="GenesisOS" >
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/release" name="build_release" groups="pdk,tradefed,sysui-studio" remote="GenesisOS" />
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed,sysui-studio" remote="GenesisOS" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- external -->
+  <project path="external/skia" name="external_skia" groups="pdk,qcom_msm8x26" remote="GenesisOS" />
+
+  <!-- frameworks -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="GenesisOS" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="GenesisOS" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="GenesisOS" />
+
+  <!-- hardware -->
+  <project path="hardware/google/pixel-sepolicy" name="hardware_google_pixel-sepolicy" groups="generic_fs,pixel,pdk-desktop" remote="GenesisOS" />
+
+  <!-- manifest -->
+  <project path="manifest" name="manifest" remote="GenesisOS" />
+
+  <!-- packages -->
+  <project path="packages/apps/BtHelper" name="packages_apps_BtHelper" remote="GenesisOS" />
+  <project path="packages/apps/FaceUnlock" name="packages_apps_FaceUnlock" remote="GenesisOS-GitLab" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs,pdk-cw-tvc" remote="GenesisOS" />
+  <project path="packages/apps/Updater" name="packages_apps_Updater" remote="GenesisOS" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="GenesisOS" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" remote="GenesisOS" />
+
+  <!-- sepolicy -->
+  <project path="device/lineage/sepolicy" name="device_lineage_sepolicy" remote="GenesisOS" />
+  <project path="device/mediatek/sepolicy_vndr" name="device_mediatek_sepolicy_vndr" remote="GenesisOS" />
+
+  <!-- system -->
+  <project path="system/core" name="system_core" groups="pdk" remote="GenesisOS" />
+  <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="GenesisOS" />
+  <project path="system/update_engine" name="system_update_engine" groups="pdk" remote="GenesisOS" />
+
+  <!-- vendor -->
+  <project path="vendor/certification" name="vendor_certification" remote="GenesisOS-GitLab" />
+  <project path="vendor/genesis" name="vendor_genesis" remote="GenesisOS" />
+  <project path="vendor/google/overlays/ThemeIcons" name="vendor_google_overlays_ThemeIcons" remote="GenesisOS" />
+  <project path="vendor/gms" name="vendor_gms" remote="GenesisOS-GitLab" clone-depth="1" />
+  <project path="vendor/support" name="vendor_support" remote="GenesisOS" />
+
+</manifest>
