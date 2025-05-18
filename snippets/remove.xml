@@ -118,8 +118,9 @@
   <remove-project name="platform/packages/modules/Wifi" />
   <remove-project name="platform/packages/providers/DownloadProvider" />
   <remove-project name="platform/packages/providers/MediaProvider" />
-  <remove-project name="platform/packages/services/Telecomm" />
   <remove-project name="platform/packages/services/DeviceAsWebcam" />
+  <remove-project name="platform/packages/services/Telecomm" />
+  <remove-project name="platform/packages/services/Iwlan" />
   <remove-project name="platform/packages/services/Telephony" />
 
   <!-- system -->
