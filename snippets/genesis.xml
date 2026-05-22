@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="genesis"
+           fetch="https://github.com/GenesisOS"
+           sync-c="true"
+           sync-j="4"
+           revision="yume" />
+
+  <remote  name="genesis-gitlab"
+           fetch="https://gitlab.com/genesisos-aosp"
+           sync-c="true"
+           sync-j="4"
+           revision="yume" />
+
+  <!-- art -->
+  <project path="art" name="art" groups="pdk" remote="genesis" />
+
+  <!-- bionic -->
+  <project path="bionic" name="bionic" groups="pdk" remote="genesis" />
+
+  <!-- bootable -->
+  <project path="bootable/deprecated-ota" name="bootable_deprecated-ota" groups="pdk-cw" remote="genesis" />
+  <project path="bootable/recovery" name="bootable_recovery" groups="pdk" remote="genesis" />
+
+  <!-- build -->
+  <project path="build/make" name="build_make" groups="pdk,sysui-studio" remote="genesis" >
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/release" name="build_release" groups="pdk,tradefed,sysui-studio" remote="genesis" />
+  <project path="build/soong" name="build_soong" groups="pdk,tradefed,sysui-studio" remote="genesis" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- external -->
+  <project path="external/bouncycastle" name="external_bouncycastle" groups="pdk" remote="genesis" />
+  <project path="external/skia" name="external_skia" groups="pdk,qcom_msm8x26" remote="genesis" />
+
+  <!-- frameworks -->
+  <project path="frameworks/av" name="frameworks_av" groups="pdk" remote="genesis" />
+  <project path="frameworks/base" name="frameworks_base" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="genesis" />
+  <project path="frameworks/libs/systemui" name="frameworks_libs_systemui" groups="pdk-cw-fs,pdk-fs,sysui-studio" remote="genesis" />
+  <project path="frameworks/native" name="frameworks_native" groups="pdk" remote="genesis" />
+  <project path="frameworks/opt/telephony" name="frameworks_opt_telephony" groups="pdk,sysui-studio" remote="genesis" />
+
+  <!-- hardware -->
+  <project path="hardware/genesis/interfaces" name="hardware_genesis_interfaces" remote="genesis" />
+  <project path="hardware/google/pixel" name="hardware_google_pixel" groups="generic_fs,pixel,pdk-gs-arm,pdk-gs-imgtec,pdk-desktop" remote="genesis" />
+  <project path="hardware/qcom-caf/common" name="hardware_qcom-caf_common" groups="qcom" remote="genesis" >
+    <!-- add guard for AOSP hardware/qcom dir -->
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+    <!-- add guards for CAF repositories -->
+    <linkfile src="os_pickup_sepolicy_vndr.mk" dest="device/qcom/sepolicy_vndr/SEPolicy.mk" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/msm8953/Android.bp" />
+    <!--
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8996/Android.bp" />
+    <linkfile src="os_pickup.mk" dest="hardware/qcom-caf/msm8996/Android.mk" />
+    -->
+    <linkfile src="os_pickup.bp" dest="hardware/qcom-caf/msm8998/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm660/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sdm845/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8150/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8250/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8350/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8450/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8450-6.6/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8550/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8650/Android.bp" />
+    <linkfile src="os_pickup_qssi.bp" dest="hardware/qcom-caf/sm8750/Android.bp" />
+  </project>
+
+  <!-- manifest -->
+  <project path="manifest" name="manifest" remote="genesis" />
+
+  <!-- packages -->
+  <project path="packages/apps/FaceUnlock" name="packages_apps_FaceUnlock" remote="genesis-gitlab" />
+  <project path="packages/apps/Launcher3" name="packages_apps_Launcher3" groups="pdk-fs,sysui-studio,pdk-cw-tvc" remote="genesis" />
+  <project path="packages/apps/Settings" name="packages_apps_Settings" groups="pdk-fs,pdk-cw-tvc" remote="genesis" />
+  <project path="packages/apps/ThemePicker" name="packages_apps_ThemePicker" groups="pdk-fs,sysui-studio" remote="genesis" />
+  <project path="packages/apps/WallpaperPicker2" name="packages_apps_WallpaperPicker2" groups="pdk-fs,sysui-studio" remote="genesis" />
+  <project path="packages/libs/Preference" name="packages_libs_Preference" remote="genesis" />
+  <project path="packages/modules/Connectivity" name="packages_modules_Connectivity" groups="pdk-cw-fs,pdk-fs" remote="genesis" />
+  <project path="packages/modules/Permission" name="packages_modules_Permission" groups="pdk-cw-fs,pdk-fs" remote="genesis" />
+  <project path="packages/providers/MediaProvider" name="packages_providers_MediaProvider" groups="pdk-cw-fs,pdk-fs" remote="genesis" />
+  <project path="packages/services/Telecomm" name="packages_services_Telecomm" groups="pdk-cw-fs,pdk-fs" remote="genesis" />
+  <project path="packages/services/Telephony" name="packages_services_Telephony" groups="pdk-cw-fs,pdk-fs" remote="genesis" />
+
+  <!-- sepolicy -->
+  <project path="device/genesis/sepolicy" name="device_genesis_sepolicy" remote="genesis" />
+
+  <!-- system -->
+  <project path="system/core" name="system_core" groups="pdk" remote="genesis" />
+  <project path="system/libhwbinder" name="system_libhwbinder" groups="pdk" remote="genesis" />
+  <project path="system/memory/libmeminfo" name="system_memory_libmeminfo" groups="pdk" remote="genesis" />
+  <project path="system/sepolicy" name="system_sepolicy" groups="pdk" remote="genesis" />
+  <project path="system/update_engine" name="system_update_engine" groups="pdk" remote="genesis" />
+
+  <!-- vendor -->
+  <project path="vendor/genesis" name="vendor_genesis" remote="genesis" />
+  <project path="vendor/pixel/extract-utils" name="vendor_pixel_extract-utils" remote="genesis-gitlab" >
+    <linkfile src="extract-all.sh" dest="vendor/pixel/extract-all.sh" />
+  </project>
+  <project path="vendor/pixel/clocks" name="vendor_pixel_clocks" remote="genesis-gitlab" />
+  <project path="vendor/pixel/gms" name="vendor_pixel_gms" remote="genesis-gitlab" />
+  <project path="vendor/pixel/launcher" name="vendor_pixel_launcher" remote="genesis-gitlab" />
+  <project path="vendor/pixel/sounds" name="vendor_pixel_sounds" remote="genesis-gitlab" />
+  <project path="vendor/pixel/themepicker" name="vendor_pixel_themepicker" remote="genesis-gitlab" />
+
+</manifest>
